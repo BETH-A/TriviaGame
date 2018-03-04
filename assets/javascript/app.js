@@ -1,4 +1,3 @@
-//  CREATE QUESTIONS & ANSWERS - STORE IN ARRAY
 $(function () {
 
     const TRIVIA_TIME = 30;
@@ -15,27 +14,27 @@ $(function () {
 	let showAnswer;
     let timer;
 
-    let questions = [];
+//  CREATE QUESTIONS & choices - STORE IN ARRAY
+    var questions = [];
 
     questions[0] = {
             question: "Who is Harry's nemesis?",
-            answers: ["Professor Snape", "Lord Voldermort", "Dumbledore", "Joffery"],
-            correctAnswer: "Lord Voldermort",
+            choices: ["Professor Snape", "Lord Voldermort", "Dumbledore", "Joffery"],
+            answer: "Lord Voldermort",
             image: "assets/images/xxx.gif"
         },
 
     questions[1]  = {
             question: "2nd question",
-            answers: ["a", "b", "c", "d"],
-            correctAnswer: "c",
+            choices: ["a", "b", "c", "d"],
+            answer: "c",
             image: "assets/images/question2.gif"
         },
 
     questions[2] = {
             question: "3rd question",
-            index: 1,
-            answers: ["a", "b", "c", "d"],
-            correctAnswer: "c",
+            choices: ["a", "b", "c", "d"],
+            answer: "c",
             image: "assets/images/question3.gif"
         }
     
@@ -94,7 +93,7 @@ $(function () {
 		//Update html elements
 		$("#time").html("<p>Time remaining: " + countdown + " seconds.</p>");
 		$("#question").html("<p>" + result + "</p>");
-		$("#answers").html("<b>" + questions[index].answer + "</b> - " + questions[index].fact);
+		$("#choices").html("<b>" + questions[index].answer + "</b> - " + questions[index].fact);
 
 		// reset result in case timer ran out
 		result = false;
@@ -105,15 +104,15 @@ $(function () {
 	}
 
 	// Function creates and places the buttons for multiple choice onto HTML
-	function createBtns(arr) {
-		for(var i = 0; i < arr.length; i++) {
+	function createBtns(questions) {
+		for(var i = 0; i < questions.length; i++) {
 			var btn = $("<button>");
 			btn.addClass("btn btn-warning");
 			btn.addClass("choice");
 			btn.attr("type", "button");
 			btn.val(i);
 			btn.html(questions[index].choices[i]);
-			$("#answers").append(btn);
+			$("#choices").append(btn);
 		}
 	}
 
@@ -159,7 +158,7 @@ $(function () {
         clearContent();
         $("#time").html("<u><h3>Final Score</h3></u>");
         $("#question").html(stats);
-        $("#answers").html(btn);
+        $("#choices").html(btn);
     }
 
     // Function that resets variables for game replay
@@ -181,6 +180,5 @@ $(function () {
     function clearContent() {
         $("#time").empty();
         $("#question").empty();
-        $("#answers").empty();
+        $("#choices").empty();
     }
-
