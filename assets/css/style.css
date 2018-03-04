@@ -1,0 +1,53 @@
+body {
+	text-align: center;
+	background: url(../images/smokey-background.jpg) no-repeat center;
+    background-size: cover;
+ 	background-attachment:fixed;
+ 	/* background-color: #000; */
+    font-family: 'Fredericka the Great', cursive;
+}
+.page-header {
+  /* background: rgba(0,0,0, 0.7); */
+    opacity: 50%;
+    color: #fff;
+    padding: 35px;
+    font-family: 'Fredericka the Great', cursive;
+    text-align: center;
+}
+
+#btnStart{
+    color: #000000;
+    font-size: 30px;
+    align-content: center;
+}
+
+.btn{
+    align-content: center;
+}
+
+.main-content {
+	position: relative;
+	padding: 30px;
+}
+
+.bg-color {
+	background: rgb(255,255,255);
+    background: rgba(255,255,255, 0.9);
+}
+
+#time,
+#question,
+#answers {
+    padding: 20px;
+    align-content: space-around;
+} 
+
+#question p {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.choice {
+	position: relative;
+	margin: 3px;
+}
