@@ -40,14 +40,18 @@ body {
 #answers {
     padding: 20px;
     align-content: space-around;
+    align-items: center;
 } 
 
 #question p {
 	font-weight: bold;
-	font-size: 20px;
+    font-size: 20px;
+    align-items: center;
+
 }
 
 .choice {
-	position: relative;
-	margin: 3px;
+    margin: 3px;
+    align-items: center;
+
 }

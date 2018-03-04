@@ -19,25 +19,45 @@ $(function () {
 
     questions[0] = {
             question: "Who is Harry's nemesis?",
-            choices: ["Professor Snape", "Lord Voldermort", "Dumbledore", "Joffery"],
+            choices: ["Professor Snape", "Lord Voldermort", "Professor Dumbledore", "Draco Malfoy"],
             answer: "Lord Voldermort",
-            image: "assets/images/xxx.gif"
+            image: "assets/images/voldermort.jpg"
         },
 
     questions[1]  = {
-            question: "2nd question",
-            choices: ["a", "b", "c", "d"],
-            answer: "c",
-            image: "assets/images/question2.gif"
+            question: "What is Harry's patronus?",
+            choices: ["Doe", "Stag", "Wolf", "Horse"],
+            answer: "Stag",
+            image: "assets/images/stag.jpg"
         },
 
     questions[2] = {
-            question: "3rd question",
-            choices: ["a", "b", "c", "d"],
-            answer: "c",
-            image: "assets/images/question3.gif"
+            question: "What potion did Harry take to get Slughorn's memories?",
+            choices: ["Felix Felicis", "Polyjuice Potion", "Alihotsy Draught", "Essense of Dittany"],
+            answer: "Felix Felicis",
+            image: "assets/images/felix-felicis.jpg"
+        }
+
+        questions[3] = {
+            question: "What did Dumbledore leave for Hermonie in is will?",
+            choices: ["The Luminator", "The Sword of Griffendor", "The Snitch", "The Tales of Beedle the Bard"],
+            answer: "The Tales of Beelde the Bard",
+            image: "assets/images/book.jpg"
         }
     
+        questions[4] = {
+            question: "How many kids are in the Weasley family?",
+            choices: ["6", "7", "8", "9"],
+            answer: "7",
+            image: "assets/images/kids.png"
+        }
+
+        questions[5] = {
+            question: "What color are the flames that came out of the Goblet of Fire?",
+            choices: ["Yellow", "Orange", "Blue", "Green"],
+            answer: "Blue",
+            image: "assets/images/goblet-fire.jpg"
+        }
 
     // Create on-clicks
     $("#btnStart").click(loadQuestion);
