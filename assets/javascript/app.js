@@ -103,7 +103,6 @@ $(function () {
 
     // Function updates HTML with the answer
 	function loadAnswer() {
-		
 		// Set result if user didn't answer and time ran out
 		if (result === false){
 			results = "No answer chosen."
