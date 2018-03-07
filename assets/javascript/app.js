@@ -5,7 +5,7 @@ $(function () {
 	var index = -1;
     var result = false;
     var results = "";
-    var countdown = 5;
+    var countdown = 10;
 	var showTrivia = "";
     var timer;
 
@@ -70,7 +70,7 @@ $(function () {
     // Function that loads the current question to the DOM
     function loadQuestion() {
         index++;	
-		countdown = 5;	
+		countdown = 10;	
         console.log(countdown);
 
 		// Only play if there is another question available
@@ -96,11 +96,9 @@ $(function () {
 
     // Function to show results
     function showResults() {
-        countdown = 3;
+        countdown = 5;
         clearInterval(timer);
             clearContent();
-            // $("#choices").text(results);
-
     }
 
     // Function updates HTML with the answer
@@ -118,14 +116,12 @@ $(function () {
 		//Update html elements
 		$("#time").html("<p>Time remaining: " + countdown + " seconds.</p>");
 		$("#question").html("<p>" + results + "</p>");
-		// $("#choices").html("<b>" + questions[index].answer + "</b> - " + questions[index].fact);
 
 		// reset result in case timer ran out
 		result = false;
 
 		// Set intervals
 		timer = setInterval(countdownTimer, 1000);
-		// showTrivia = setInterval(loadQuestion, countdown * 1000);
 	}
 
 	// Function creates and places the buttons for multiple choice onto HTML
@@ -145,7 +141,7 @@ $(function () {
 
 	// Function determines if user guessed correct answer	
 	function checkAnswer(obj) {
-		
+
 		// Determine if correct answer
 		if(obj.text() === questions[index].answer){
             correct++;
@@ -156,16 +152,12 @@ $(function () {
         resultsDiv.append(results).append(resultsImage);
         console.log(resultsDiv);
         $("#choices").html(resultsDiv);
-            // results = "Correct!" + questions[index].image;
-            ;
 		}
 		else {
 			wrong++;
             results = "Incorrect! The correct answer is " + questions[index].answer;
         $("#choices").html(results);
         }
-        // showResults()
-        // setTimeout(loadQuestion, 7000);
     }
 
     // Function that shows the timer
@@ -191,7 +183,6 @@ $(function () {
         let stats = "<p>Correct: " + correct + "</p> <br>" +
                     "<p>Incorrect: " + wrong + "</p>  <br>" +
                     "<p>Unanswered: " + unanswered + "</p>  <br>"
-        ;
         let btn = "<button class='btn btn-danger' type='button' id='btnRestart'>Play Again</button>"
 
         // Update HTML

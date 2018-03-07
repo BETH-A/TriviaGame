@@ -8,12 +8,9 @@ body {
 	background: url(../images/smokey-background.jpg) no-repeat center;
     background-size: cover;
  	background-attachment:fixed;
- 	/* background-color: #000; */
     font-family: 'Fredericka the Great', cursive;
-   
 }
 .page-header {
-  /* background: rgba(0,0,0, 0.7); */
     opacity: 50%;
     color: #fff;
     padding: 35px;
@@ -25,10 +22,14 @@ body {
     color: #000000;
     font-size: 30px;
     align-content: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .btn{
     align-content: center;
+    margin-bottom: 45px;
 }
 
 .main-content {
@@ -37,7 +38,7 @@ body {
 }
 
 .bg-color {
-	background: rgb(255,255,255);
+	background: silver;
     background: rgba(255,255,255, 0.9);
 }
 
@@ -47,17 +48,36 @@ body {
     padding: 20px;
     align-content: space-around;
     align-items: center;
+    color: #fff;
 } 
 
 #question p {
-	font-weight: bold;
     font-size: 20px;
     align-items: center;
+    color: #fff;
 
 }
 
 .choice {
     margin: 3px;
     align-items: center;
-
+    margin-bottom: 45px;
 }
+
+.results-image {
+    margin-bottom: 25px;    
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+ }
+
+ #choices {
+     color: #fff;
+     margin-bottom: 35px;
+ }
