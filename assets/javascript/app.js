@@ -1,17 +1,12 @@
 $(function () {
 
-    // const TRIVIA_TIME = 30;
-	// const ANSWER_TIME = 7;
-
 	var wrong = 0;
 	var correct = 0;
 	var index = -1;
-	var result = false;
+    var result = false;
+    var results = "";
     var countdown = 5;
-
-	// setInterval variables
-	var showTrivia;
-	// let showAnswer;
+	var showTrivia = "";
     var timer;
 
 //  CREATE QUESTIONS & choices - STORE IN ARRAY
@@ -40,7 +35,7 @@ $(function () {
          {
             question: "What did Dumbledore leave for Hermonie in is will?",
             choices: ["The Luminator", "The Sword of Griffendor", "The Snitch", "The Tales of Beedle the Bard"],
-            answer: "The Tales of Beelde the Bard",
+            answer: "The Tales of Beedle the Bard",
             image: "assets/images/book.jpg"
         },
     
@@ -98,14 +93,22 @@ $(function () {
 			endGame();
 		}
     }
+
+    // Function to show results
+    function showResults() {
+        countdown = 3;
+        clearInterval(timer);
+            clearContent();
+            // $("#choices").text(results);
+
+    }
+
     // Function updates HTML with the answer
 	function loadAnswer() {
 		
-		// countdown = ANSWER_TIME;
-
 		// Set result if user didn't answer and time ran out
 		if (result === false){
-			result = "No answer chosen."
+			results = "No answer chosen."
 		}
 		// Clear values
 		clearInterval(showAnswer);
@@ -114,7 +117,7 @@ $(function () {
 
 		//Update html elements
 		$("#time").html("<p>Time remaining: " + countdown + " seconds.</p>");
-		$("#question").html("<p>" + result + "</p>");
+		$("#question").html("<p>" + results + "</p>");
 		// $("#choices").html("<b>" + questions[index].answer + "</b> - " + questions[index].fact);
 
 		// reset result in case timer ran out
@@ -145,14 +148,24 @@ $(function () {
 		
 		// Determine if correct answer
 		if(obj.text() === questions[index].answer){
-			correct++;
-			result = "Correct!";
+            correct++;
+        var resultsDiv = $("<div class='resultClass'>");
+        var results = $("<p>Correct!</p>");
+        console.log(questions[index].image)
+        var resultsImage = $("<img alt='image' class='results-image' src = " +questions[index].image +">");
+        resultsDiv.append(results).append(resultsImage);
+        console.log(resultsDiv);
+        $("#choices").html(resultsDiv);
+            // results = "Correct!" + questions[index].image;
+            ;
 		}
 		else {
 			wrong++;
-			result = "Incorrect!";
-		}
-		loadQuestion();
+            results = "Incorrect! The correct answer is " + questions[index].answer;
+        $("#choices").html(results);
+        }
+        // showResults()
+        // setTimeout(loadQuestion, 7000);
     }
 
     // Function that shows the timer
@@ -175,9 +188,9 @@ $(function () {
         
         // Set variables
         let unanswered = questions.length - (correct + wrong);
-        let stats = "<p>Correct: " + correct + "</p> <br></br>" +
-                    "<p>Incorrect: " + wrong + "</p>  <br></br>" +
-                    "<p>Unanswered: " + unanswered + "</p>  <br></br>"
+        let stats = "<p>Correct: " + correct + "</p> <br>" +
+                    "<p>Incorrect: " + wrong + "</p>  <br>" +
+                    "<p>Unanswered: " + unanswered + "</p>  <br>"
         ;
         let btn = "<button class='btn btn-danger' type='button' id='btnRestart'>Play Again</button>"
 
